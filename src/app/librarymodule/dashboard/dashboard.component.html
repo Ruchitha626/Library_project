@@ -1,0 +1,28 @@
+<div class="dashboard-container">
+    <header>
+      <h1>Library Management Dashboard</h1>
+    </header>
+    
+    <div class="statistics-cards">
+      <div class="stat-card">
+        <h3>Total Books</h3>
+        <div class="card flex justify-content-center">
+          <p-knob [(ngModel)]="books" />
+        </div>    
+      </div>
+      <div class="stat-card">
+        <h3>Total Members</h3>
+        <div class="card flex justify-content-center">
+          <form [formGroup]="formGroup">
+              <p-knob formControlName="members" />
+          </form>
+        </div> 
+      </div>
+    </div>
+   
+   
+  
+   
+  </div>
+
+<app-re-use [some]="'@Library'"></app-re-use>

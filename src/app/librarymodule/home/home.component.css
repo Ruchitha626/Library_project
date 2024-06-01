@@ -1,0 +1,43 @@
+.p-toolbar-group-center {
+  display: flex;
+  padding-left: 10px;
+  margin: 0 1rem;
+  padding-top: 20px;
+  color:rgb(95, 95, 160)
+}
+
+.content {
+  text-align: center;
+  min-height: 600px;
+}
+
+.p-list {
+  list-style-type: none;
+  padding: 0;
+}
+.profile-photo {
+  width: 40px; /* Adjust the width and height as needed */
+  height: 40px; /* Adjust the width and height as needed */
+  background-color: #ccc; /* Placeholder background color */
+  border-radius: 50%; /* Make it round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.initial {
+  color: #fff; /* Text color */
+}
+
+.p-list li {
+  margin-bottom: 1rem;
+}
+
+.custom-sidebar {
+  width: 80px; /* Adjust the width as needed */
+}
+
+.custom-sidebar .p-sidebar-content {
+  width: 100%;
+}

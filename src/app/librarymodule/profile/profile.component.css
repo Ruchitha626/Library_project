@@ -1,0 +1,59 @@
+.profile-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.profile-container h2 {
+  margin-top: 0;
+}
+
+.photo-upload-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  border-radius: 50%;
+}
+
+.upload-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-details {
+  margin-top: 20px;
+}
+
+.user-details input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.user-details p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.user-details p span {
+  font-weight: bold;
+}

@@ -1,0 +1,17 @@
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+<div *ngIf="!errorMessage && book.length === 0">No borrowed books available.</div>
+<div *ngIf="!errorMessage && book.length > 0" class="book-list">
+  <div *ngFor="let b of book" class="book-item">
+    <img [src]="b.coverImage" alt="{{ b.title }} cover">
+    <div class="book-details">
+      <h2>{{ b.title }}</h2>
+      <p><strong>Author:</strong> {{ b.author }}</p>
+      <p><strong>Genre:</strong> {{ b.genre }}</p>
+      <p><strong>Number of Days:</strong> {{ b.numberOfDays }}</p> <!-- Display number of days -->
+    </div>
+  </div>
+</div>
+<div class="footer">
+    <app-re-use [some]="'@Library'"></app-re-use>
+
+</div>

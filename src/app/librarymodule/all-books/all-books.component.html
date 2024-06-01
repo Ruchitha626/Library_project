@@ -1,0 +1,98 @@
+<p-dialog header="Add Book" [modal]="true" [(visible)]="visible" [style]="{height: '25vw'}">
+    <form [formGroup]="booksForm">
+        <div class="line">
+            <div class="col-2">
+                <input type="text" id="title" pInputText placeholder="Enter title" formControlName="title"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="author" pInputText placeholder="Enter Author" formControlName="author"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="genre" pInputText placeholder="Enter Genre" formControlName="genre"/>
+            </div>
+        </div>
+        <div class="line">
+            <div class="col-2">
+                <input type="text" id="value" pInputText placeholder="Enter rating" formControlName="value"/>
+            </div>
+            <div class="col-2">
+                <p-fileUpload
+                #fileUpload
+                mode="basic"
+                chooseLabel="Choose"
+                chooseIcon="pi pi-upload"
+                name="demo[]"
+                url="https://www.primefaces.org/cdn/api/upload.php"
+                accept="image/*"
+                (onSelect)="onSelect($event)">
+            </p-fileUpload>
+            
+            </div>
+        </div>
+        <span>
+            <p-button label="Save" [disabled]="!booksForm.valid" (click)="Add()"></p-button>
+        </span>
+    </form>
+</p-dialog>
+<div class="buttons">
+    <div class="button-group">
+        <p-button class="abc" [raised]="true" label="Add" (click)="add()">
+            <i class="pi pi-plus" style="font-size: 1rem"></i>
+        </p-button>
+        <p-button label="Download" (click)="ExportExcel()"><i class="pi pi-download" style="font-size: 1.5rem"></i></p-button>
+    </div>
+</div>
+
+<div class="abc">
+    <p-table  #dt1
+        [value]="books"
+        dataKey="id"
+        [rows]="10"
+        id="table-data"
+        [loading]="loading"
+        [rowsPerPageOptions]="[5, 10, 50]"
+        [paginator]="true"
+        [globalFilterFields]="['title', 'author', 'genre']">
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <div class="search-bar">
+                    <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt1)" />
+                    <input type="text" pInputText placeholder="Search by title, author, or genre" [(ngModel)]="searchQuery" (input)="dt1.filterGlobal($any($event.target).value, 'contains')" />
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="title" style="width:20%">
+                    Title <p-sortIcon field="title" />
+                </th>
+                <th pSortableColumn="author" style="width:20%">
+                    Author <p-sortIcon field="author" />
+                </th>
+                <th pSortableColumn="genre" style="width:20%">
+                    Genre <p-sortIcon field="genre" />
+                </th>
+                <th pSortableColumn="value" style="width:20%">
+                    Rating <p-sortIcon field="value" />
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-books>
+            <tr>
+                <td>{{books.title}}</td>
+                <td>{{books.author}}</td>
+                <td>{{books.genre}}</td>
+                <td>
+                    <div class="card flex justify-content-center">
+                        <p-rating [(ngModel)]="books.value" [disabled]="true" [readonly]="false" [cancel]="false" />
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>    
+</div>
+
+<div class="footer">
+    <app-re-use [some]="'@Library'"></app-re-use>
+
+</div>

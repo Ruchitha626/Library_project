@@ -1,0 +1,14 @@
+<div class="profile-container">
+    <h2>Profile Photo</h2>
+    <div class="photo-upload-wrapper">
+        <p-image [src]="image" alt="Image" class="profile-photo" width="250" [preview]="true"></p-image>
+        <label for="fileInput" class="upload-button">+</label>
+        <input id="fileInput" type="file" #fileInput accept="image/*" (change)="onSelect($event)" hidden>
+    </div>
+    
+    <div class="user-details">
+        <p>Name: <span>{{ loggeduser }}</span></p>
+        <input type="text" [(ngModel)]="loggeduser" placeholder="Enter username" (change)="updateUsername(loggeduser)">
+        <p-button label="Save" routerLink="/dash"></p-button>
+    </div>
+</div>

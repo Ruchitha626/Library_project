@@ -1,0 +1,26 @@
+<div *ngIf="book">
+  <h1>{{ book.title }}</h1>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Genre:</strong> {{ book.genre }}</p>
+  <p><strong>Description:</strong> {{book.description}}</p>
+  <p><strong>Moral:</strong> {{book.moral}}</p>
+  <p-button routerLink="/discover">Back</p-button>&nbsp;&nbsp;
+  <p-button (click)="borrowbook()">Borrow</p-button>
+</div>
+<p-toast></p-toast>
+<p-dialog header="Borrow Book" [(visible)]="displayDialog" [modal]="true" [closable]="false" [style]="{width: '50vw'}">
+  <div class="ui-g">
+      <div class="ui-g-12">
+          <label>Enter no. of Days: </label>
+          <p-inputNumber [(ngModel)]="numberOfDays" inputId="integeronly"></p-inputNumber>
+      </div>
+  </div>
+  <p-footer>
+      <button pButton label="Save" icon="pi pi-check" (click)="save()"></button>
+      <button pButton label="Cancel" icon="pi pi-times" class="ui-button-secondary" (click)="cancel()"></button>
+  </p-footer>
+</p-dialog>
+<div class="footer">
+  <app-re-use [some]="'@Library'"></app-re-use>
+
+</div>

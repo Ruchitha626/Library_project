@@ -1,0 +1,50 @@
+<div class="main">  
+    <input type="checkbox" pInputText id="chk" aria-hidden="true">
+  
+    <div class="signup" >
+      <form #signupForm="ngForm" (ngSubmit)="onRegister(signupForm)">
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <input type="text" pInputText name="name" placeholder="Name" [(ngModel)]="signupobj.name" autocomplete="new-name" required>
+        <div *ngIf="signupForm.submitted && signupForm.controls['name']?.invalid">
+          Name is required.
+        </div>
+  
+        <input type="email" pInputText name="email" placeholder="Email" [(ngModel)]="signupobj.email" autocomplete="email" required email>
+        <div *ngIf="signupForm.submitted && signupForm.controls['email']?.invalid">
+          A valid email is required.
+        </div>
+  
+        <input type="password" pInputText name="password" placeholder="Password" [(ngModel)]="signupobj.password" autocomplete="new-password" required>
+        <div *ngIf="signupForm.submitted && signupForm.controls['password']?.invalid">
+          Password is required.
+        </div>
+  
+        <p-button type="submit" [disabled]="!signupForm.form.valid">Sign up</p-button>
+      </form>
+    </div>
+  
+    <div class="login">
+      <form #loginForm="ngForm" (ngSubmit)="onLogIn()">
+        <label for="chk" aria-hidden="true">Login</label>
+        <input type="email" class="p-inputtext-sm w-full" pInputText name="email" id="email" placeholder="Email" [(ngModel)]="loginobj.email" autocomplete="new-email" required>
+        
+        <div *ngIf="loginForm.submitted && loginForm.controls['email']?.invalid">
+          Email is required.
+        </div>
+  
+        <input type="password" pInputText name="password" placeholder="Password" [(ngModel)]="loginobj.password" autocomplete="new-password" required>
+        <div *ngIf="loginForm.submitted && loginForm.controls['password']?.invalid">
+          Password is required.
+        </div>
+  
+        <p-button type="submit" [disabled]="!loginForm.form.valid">Log In</p-button>
+      </form>
+    </div>
+  </div>
+  <p-toast></p-toast>
+
+  
+<!-- <span class="p-float-label">
+  <input pInputText id="username" [(ngModel)]="value" />
+  <label htmlFor="username">Username</label>
+</span> -->

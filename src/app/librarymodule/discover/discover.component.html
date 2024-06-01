@@ -1,0 +1,29 @@
+<div class="discover-container">
+  <h1>Discover Books</h1>  
+  <div class="search-bar"> 
+       <p-button label="Clear" class="p-button-secondary"[outlined]="true" icon="pi pi-filter-slash" (click)="clearSearch()"/>&nbsp;&nbsp;&nbsp;
+       <input type="text" pInputText  placeholder="Search by title, author, or genre" [(ngModel)]="searchQuery" (ngModelChange)="filterBooks()" /> 
+     </div> 
+       <div class="book-list">  
+              <div *ngFor="let book of filteredBooks" class="book-item" >  
+                    <a href="/books/{{ book.id }}"><img [src]="book.coverImage" alt="{{ book.title }} cover"></a>     
+                 <div class="book-details">   
+                     <h2>{{ book.title }}</h2>  
+                    <p><strong>Author:</strong> {{ book.author }}</p>       
+                    <p><strong>Genre:</strong> {{ book.genre }}</p>   
+
+               </div>
+        </div>
+     </div>
+  
+<div class="card flex justify-content-center">
+  <p-paginator 
+      (onPageChange)="onPageChange($event)" 
+      [rows]="itemsPerPage" 
+      [totalRecords]="books.length" 
+       />
+</div>
+</div>
+<div class="footer">
+  <app-re-use [some]="'@Library'"></app-re-use>
+</div>
